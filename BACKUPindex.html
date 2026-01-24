@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Belly Wine Imports | Curated Wines from Around the World</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F5F1E8;
+            --warm-white: #FFFBF5;
+            --gold: #D4AF37;
+            --deep-burgundy: #5C1A1B;
+            --soft-burgundy: #8B3A3A;
+            --charcoal: #2C2C2C;
+            --text-dark: #1A1A1A;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 0.8rem 4rem;
+            z-index: 1000;
+            background: rgba(245, 241, 232, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            padding: 0.8rem 4rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            max-width: 100px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 110%;
+            background: url('assets/images/landscape-hero.png') center center/cover no-repeat;
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(28, 28, 28, 0.3), rgba(28, 28, 28, 0.6));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-label {
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.3s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.7s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: var(--deep-burgundy);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 8rem 4rem;
+            background: var(--warm-white);
+            position: relative;
+        }
+
+        .story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--deep-burgundy);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            font-weight: 300;
+        }
+
+        .story-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Featured Wines */
+        .featured-wines {
+            padding: 8rem 4rem;
+            background: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--deep-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            font-weight: 300;
+        }
+
+        .wines-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .wine-card {
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+
+        .wine-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .wine-image-wrapper {
+            position: relative;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .wine-image-wrapper img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .wine-card:hover .wine-image-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .wine-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--deep-burgundy);
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-origin {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 4rem;
+            background: var(--deep-burgundy);
+            color: var(--warm-white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .contact-cta {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            border: 2px solid var(--warm-white);
+            color: var(--warm-white);
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .contact-cta:hover {
+            background: var(--warm-white);
+            color: var(--deep-burgundy);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 4rem;
+            background: var(--charcoal);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon {
+            color: var(--gold);
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--warm-white);
+            padding: 4rem;
+            max-width: 600px;
+            margin: 2rem;
+            border-radius: 2px;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--charcoal);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--deep-burgundy);
+        }
+
+        .modal-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .modal-content a {
+            color: var(--deep-burgundy);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .wines-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 2rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .story {
+                padding: 5rem 2rem;
+            }
+
+            .story-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .featured-wines {
+                padding: 5rem 2rem;
+            }
+
+            .wines-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact {
+                padding: 5rem 2rem;
+            }
+
+            .contact h2 {
+                font-size: 2.5rem;
+            }
+
+            .modal-content {
+                padding: 3rem 2rem;
+            }
+
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <img src="assets/images/full-belly-logo.png" alt="Full Belly Wine Imports" class="logo">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-label">Wine Importer • Toronto</div>
+            <h1 class="hero-title">Full Belly Wine Imports</h1>
+            <p class="hero-subtitle">Small-production wines sourced through long-standing relationships with family growers around the world</p>
+            <button class="cta-button" onclick="openModal()">Place an Order</button>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="50" viewBox="0 0 30 50">
+                <rect x="5" y="5" width="20" height="35" rx="10" fill="none" stroke="white" stroke-width="2"/>
+                <circle cx="15" cy="15" r="3" fill="white">
+                    <animate attributeName="cy" values="15;25;15" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story">
+        <div class="story-container">
+            <div class="story-content reveal">
+                <h2>Born from an Adventure</h2>
+                <p>Full Belly Wine Imports began with a three-year overland journey from Canada to Argentina, exploring global wine regions in search of exceptional and distinctive products.</p>
+                <p>That adventure inspired our mission: to bring back the wines we discovered along the way—small-batch, high-quality bottles from passionate family producers who pour their heritage into every vintage.</p>
+                <p>Today, we continue to expand our portfolio with offerings from Argentina, Italy, Spain, South Africa, and beyond, focusing on wines with distinctive character and story that appeal to both wine enthusiasts and hospitality partners across Ontario.</p>
+            </div>
+            <div class="story-image reveal">
+                <img src="assets/images/parked-truck.jpg" alt="Wine cellar barrels">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Wines -->
+    <section class="featured-wines">
+        <div class="section-header reveal">
+            <h2>Featured Selections</h2>
+            <p>A glimpse into our carefully curated portfolio</p>
+        </div>
+        <div class="wines-grid">
+            <div class="wine-card reveal">
+                <div class="wine-image-wrapper">
+                    <img src="assets/images/gran-reserva-malbec.jpg" alt="Gran Reserva Malbec">
+                </div>
+                <h3 class="wine-name">Gran Reserva Malbec</h3>
+                <p class="wine-origin">Mendoza, Argentina</p>
+            </div>
+            <div class="wine-card reveal">
+                <div class="wine-image-wrapper">
+                    <img src="assets/images/malbec2.jpg" alt="Jorge Alberto Rubio">
+                </div>
+                <h3 class="wine-name">Jorge Alberto Rubio</h3>
+                <p class="wine-origin">Mendoza, Argentina</p>
+            </div>
+            <div class="wine-card reveal">
+                <div class="wine-image-wrapper">
+                    <img src="assets/images/picnic.jpg" alt="Privado Collection">
+                </div>
+                <h3 class="wine-name">Privado Collection</h3>
+                <p class="wine-origin">Mendoza, Argentina</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Ready to Explore Our Portfolio?</h2>
+        <p>We work directly with clients to curate personalized wine selections.<br>Contact us for our current offerings and ordering details.</p>
+        <button class="contact-cta" onclick="openModal()">Get in Touch</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Full Belly Wine Imports. All rights reserved.</p>
+        <p class="coming-soon">New E-Commerce Platform Launching Spring 2026</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <!-- <h3>Place Your Order</h3> -->
+            <p>We're delighted you're interested in our wines. Our boutique approach means we work directly with each client to ensure you receive exactly what you're looking for.</p>
+            <p><strong>To request our full wine portfolio and place an order:</strong></p>
+            <p>Email us at <a href="mailto:info@fullbelly.ca">info@fullbelly.ca</a></p>
+            <!-- <p>Whether you're stocking your personal cellar or outfitting a restaurant, we're here to help you find the perfect bottles.</p> -->
+        </div>
+    </div>
+
+    <script>
+        // Parallax effect for hero and header scroll behavior
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.getElementById('heroBg');
+            const header = document.getElementById('header');
+            
+            // Parallax effect for hero image (currently commented out)
+            // if (heroBg) {
+            //     heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            // }
+
+            if (scrolled > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('orderModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
