@@ -512,6 +512,11 @@
             .modal-content {
                 padding: 3rem 2rem;
             }
+
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+            }
         }
 
         /* Scroll reveal */
@@ -625,15 +630,16 @@
     </div>
 
     <script>
-        // Parallax effect for hero
+        // Parallax effect for hero and header scroll behavior
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const heroBg = document.getElementById('heroBg');
             const header = document.getElementById('header');
             
-            if (heroBg) {
-                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
+            // Parallax effect for hero image (currently commented out)
+            // if (heroBg) {
+            //     heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            // }
 
             if (scrolled > 100) {
                 header.classList.add('scrolled');
