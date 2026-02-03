@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corner Style Options - Full Belly Wine Imports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F5F1E8;
+            --warm-white: #FFFBF5;
+            --gold: #D4AF37;
+            --deep-burgundy: #5C1A1B;
+            --soft-burgundy: #8B3A3A;
+            --charcoal: #2C2C2C;
+            --text-dark: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            padding: 3rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        .style-section {
+            margin-bottom: 5rem;
+            background: var(--warm-white);
+            padding: 3rem;
+            border: 2px solid #e0e0e0;
+        }
+
+        .style-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 0.5rem;
+        }
+
+        .style-description {
+            font-size: 1rem;
+            color: var(--soft-burgundy);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Wine Card Base */
+        .wine-card {
+            background: var(--cream);
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .wine-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .wine-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .wine-card-content {
+            padding: 1.5rem;
+        }
+
+        .wine-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--deep-burgundy);
+            margin-bottom: 0.5rem;
+        }
+
+        .wine-origin {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Winery Card Base */
+        .winery-card {
+            background: var(--cream);
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .winery-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .winery-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--deep-burgundy);
+            margin-bottom: 0.5rem;
+        }
+
+        .winery-card p {
+            color: var(--soft-burgundy);
+            font-size: 0.95rem;
+        }
+
+        /* Button Styles */
+        .button-demo {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cta-button:hover {
+            background: var(--deep-burgundy);
+            color: white;
+        }
+
+        /* Style Variations */
+        .square {
+            border-radius: 0;
+        }
+
+        .medium {
+            border-radius: 12px;
+        }
+
+        .soft {
+            border-radius: 20px;
+        }
+
+        .pill {
+            border-radius: 50px;
+        }
+
+        /* Current button style from website */
+        .current-button {
+            padding: 1.2rem 3rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 0;
+        }
+
+        .current-button:hover {
+            background: white;
+            color: var(--deep-burgundy);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Dark background for current button demo */
+        .dark-bg {
+            background: var(--deep-burgundy);
+            padding: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Notes Section */
+        .notes {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .notes h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--deep-burgundy);
+            margin-bottom: 0.5rem;
+        }
+
+        .notes ul {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Button Grid Styles */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .button-sample {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .button-label {
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            text-align: center;
+        }
+
+        /* Organic Button Shapes */
+        
+        /* Blob Morph */
+        .btn-blob {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
+            padding: 1.2rem 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-blob:hover {
+            border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%;
+            background: var(--soft-burgundy);
+        }
+
+        /* Smooth Wave */
+        .btn-wave {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+            padding: 1rem 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-wave:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+        }
+
+        /* Pebble */
+        .btn-pebble {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 20px 40px 30px 35px;
+            padding: 1rem 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-pebble:hover {
+            border-radius: 35px 25px 40px 20px;
+            background: var(--gold);
+        }
+
+        /* Liquid Drop */
+        .btn-liquid {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 70% 30% 50% 50% / 60% 40% 60% 40%;
+            padding: 1.2rem 2.8rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-liquid:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            border-radius: 30% 70% 50% 50% / 40% 60% 40% 60%;
+        }
+
+        /* Organic Oval */
+        .btn-organic-oval {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 50% / 60% 60% 40% 40%;
+            padding: 1.2rem 3rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-organic-oval:hover {
+            border-radius: 50% / 40% 40% 60% 60%;
+            background: var(--soft-burgundy);
+        }
+
+        /* Cloud Shape */
+        .btn-cloud {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 50% 50% 40% 60% / 70% 70% 30% 30%;
+            padding: 1rem 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-cloud:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            border-radius: 60% 40% 50% 50% / 30% 30% 70% 70%;
+        }
+
+        /* Teardrop */
+        .btn-teardrop {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 50% 50% 50% 0% / 50% 50% 50% 50%;
+            padding: 1.2rem 2.5rem;
+            transform: rotate(45deg);
+            transition: all 0.4s ease;
+        }
+
+        .btn-teardrop span {
+            display: inline-block;
+            transform: rotate(-45deg);
+        }
+
+        .btn-teardrop:hover {
+            background: var(--gold);
+            transform: rotate(50deg) scale(1.05);
+        }
+
+        /* Kidney Bean */
+        .btn-kidney {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            padding: 1rem 2.8rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-kidney:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+        }
+
+        /* Amoeba */
+        .btn-amoeba {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 73% 27% 46% 54% / 53% 68% 32% 47%;
+            padding: 1rem 2.5rem;
+            transition: all 0.5s ease;
+        }
+
+        .btn-amoeba:hover {
+            border-radius: 46% 54% 73% 27% / 32% 47% 53% 68%;
+            background: var(--soft-burgundy);
+        }
+
+        /* Smooth Arch */
+        .btn-arch {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+            padding: 1.2rem 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-arch:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+        }
+
+        /* Wine Glass Silhouette */
+        .btn-wineglass {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 30% 30% 70% 70% / 30% 30% 20% 20%;
+            padding: 1.3rem 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-wineglass:hover {
+            background: var(--gold);
+            border-radius: 25% 25% 75% 75% / 25% 25% 15% 15%;
+        }
+
+        /* Flowing Ribbon */
+        .btn-ribbon-flow {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 55% 45% 45% 55% / 60% 40% 60% 40%;
+            padding: 1rem 3rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-ribbon-flow:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            border-radius: 45% 55% 55% 45% / 40% 60% 40% 60%;
+        }
+
+        /* Infinity Loop */
+        .btn-infinity {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 50% 20% 50% 20% / 50% 50% 50% 50%;
+            padding: 1.2rem 2.8rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-infinity:hover {
+            background: var(--soft-burgundy);
+            border-radius: 20% 50% 20% 50% / 50% 50% 50% 50%;
+        }
+
+        /* Smooth Lens */
+        .btn-lens {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 50% / 30% 30% 70% 70%;
+            padding: 1rem 3rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-lens:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            border-radius: 50% / 70% 70% 30% 30%;
+        }
+
+        /* Smooth Capsule */
+        .btn-smooth-capsule {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 100px;
+            padding: 1rem 3.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-smooth-capsule:hover {
+            background: var(--gold);
+            padding: 1.2rem 4rem;
+        }
+
+        /* Undulating */
+        .btn-undulate {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            padding: 1rem 2.5rem;
+            transition: all 0.5s ease;
+        }
+
+        .btn-undulate:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            border-radius: 37% 63% 46% 54% / 48% 55% 45% 52%;
+        }
+
+        /* Artistic Splash */
+        .btn-splash {
+            background: var(--deep-burgundy);
+            color: white;
+            border: none;
+            border-radius: 68% 32% 42% 58% / 48% 71% 29% 52%;
+            padding: 1.2rem 2.5rem;
+            transition: all 0.5s ease;
+        }
+
+        .btn-splash:hover {
+            border-radius: 42% 58% 68% 32% / 71% 48% 52% 29%;
+            background: var(--soft-burgundy);
+        }
+
+        /* Elegant Hover Effects with guaranteed text readability */
+        
+        /* Backlight Glow - LED TV effect */
+        .hover-backlight {
+            background: var(--deep-burgundy);
+            color: white;
+            position: relative;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .hover-backlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--deep-burgundy);
+            border-radius: inherit;
+            z-index: -1;
+            transition: all 0.4s ease;
+        }
+
+        .hover-backlight::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: linear-gradient(45deg, var(--gold), var(--soft-burgundy), var(--deep-burgundy), var(--gold));
+            background-size: 300% 300%;
+            border-radius: inherit;
+            opacity: 0;
+            z-index: -2;
+            filter: blur(15px);
+            animation: backlight-glow 3s ease infinite;
+            transition: opacity 0.4s ease;
+        }
+
+        .hover-backlight:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes backlight-glow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Backlight Pulse */
+        .hover-backlight-pulse {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            position: relative;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .hover-backlight-pulse::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: var(--gold);
+            border-radius: inherit;
+            opacity: 0;
+            z-index: -1;
+            filter: blur(20px);
+            transition: opacity 0.4s ease;
+        }
+
+        .hover-backlight-pulse:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .hover-backlight-pulse:hover::after {
+            opacity: 0.8;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+        }
+
+        /* Backlight RGB */
+        .hover-backlight-rgb {
+            background: var(--cream);
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            position: relative;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .hover-backlight-rgb::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: linear-gradient(45deg, #5C1A1B, #D4AF37, #8B3A3A, #5C1A1B);
+            background-size: 400% 400%;
+            border-radius: inherit;
+            opacity: 0;
+            z-index: -1;
+            filter: blur(12px);
+            transition: opacity 0.4s ease;
+        }
+
+        .hover-backlight-rgb:hover {
+            background: var(--deep-burgundy);
+            color: white;
+        }
+
+        .hover-backlight-rgb:hover::before {
+            opacity: 1;
+            animation: rgb-shift 3s linear infinite;
+        }
+
+        @keyframes rgb-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Soft Glow */
+        .hover-soft-glow {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            transition: all 0.4s ease;
+        }
+
+        .hover-soft-glow:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            box-shadow: 0 0 20px rgba(92, 26, 27, 0.4), 0 0 40px rgba(92, 26, 27, 0.2);
+        }
+
+        /* Wine Bloom */
+        .hover-wine-bloom {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hover-wine-bloom::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--deep-burgundy) 0%, rgba(92, 26, 27, 0.8) 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.8s ease, height 0.8s ease;
+            z-index: -1;
+        }
+
+        .hover-wine-bloom span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hover-wine-bloom:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .hover-wine-bloom:hover {
+            color: white;
+        }
+
+        /* Gold Shimmer */
+        .hover-gold-shimmer {
+            background: var(--deep-burgundy);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hover-gold-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+
+        .hover-gold-shimmer span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hover-gold-shimmer:hover::after {
+            left: 100%;
+        }
+
+        /* Gentle Lift */
+        .hover-gentle-lift {
+            background: var(--cream);
+            border: 1px solid #d0d0d0;
+            color: var(--deep-burgundy);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .hover-gentle-lift:hover {
+            background: var(--deep-burgundy);
+            color: white;
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(92, 26, 27, 0.2);
+        }
+
+        /* Border Trace */
+        .hover-border-trace {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            position: relative;
+        }
+
+        .hover-border-trace::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 2px solid var(--gold);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .hover-border-trace:hover {
+            background: var(--deep-burgundy);
+            color: white;
+        }
+
+        .hover-border-trace:hover::before {
+            opacity: 1;
+        }
+
+        /* Fade Elegance */
+        .hover-fade-elegant {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            transition: all 0.8s ease;
+        }
+
+        .hover-fade-elegant:hover {
+            background: var(--deep-burgundy);
+            color: white;
+        }
+
+        /* Wax Seal */
+        .hover-wax-seal {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            position: relative;
+        }
+
+        .hover-wax-seal::before {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 2rem;
+            color: var(--gold);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .hover-wax-seal:hover {
+            background: rgba(92, 26, 27, 0.05);
+        }
+
+        .hover-wax-seal:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.3;
+        }
+
+        /* Underline Draw */
+        .hover-underline-draw {
+            background: transparent;
+            border: none;
+            color: var(--deep-burgundy);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .hover-underline-draw::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        .hover-underline-draw:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Ripple */
+        .hover-ripple {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hover-ripple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .hover-ripple:hover {
+            background: var(--deep-burgundy);
+            color: white;
+        }
+
+        .hover-ripple:hover::before {
+            width: 200%;
+            height: 200%;
+            opacity: 0;
+        }
+
+        /* Vintage Fade */
+        .hover-vintage-fade {
+            background: var(--deep-burgundy);
+            color: white;
+            transition: all 0.6s ease;
+            filter: contrast(1);
+        }
+
+        .hover-vintage-fade:hover {
+            background: var(--soft-burgundy);
+            filter: contrast(0.9) sepia(0.3);
+        }
+
+        /* Double Line */
+        .hover-double-line {
+            background: transparent;
+            border: none;
+            color: var(--deep-burgundy);
+            position: relative;
+            padding: 1rem 2.5rem;
+        }
+
+        .hover-double-line::before,
+        .hover-double-line::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s ease;
+        }
+
+        .hover-double-line::before {
+            top: 8px;
+            left: 50%;
+            width: 0;
+            transform: translateX(-50%);
+        }
+
+        .hover-double-line::after {
+            bottom: 8px;
+            left: 50%;
+            width: 0;
+            transform: translateX(-50%);
+        }
+
+        .hover-double-line:hover::before,
+        .hover-double-line:hover::after {
+            width: 80%;
+        }
+
+        /* Marble Swirl */
+        .hover-marble {
+            background: linear-gradient(135deg, var(--deep-burgundy) 0%, var(--soft-burgundy) 50%, var(--deep-burgundy) 100%);
+            background-size: 200% 200%;
+            background-position: 0% 50%;
+            color: white;
+            border: none;
+            transition: background-position 0.8s ease;
+        }
+
+        .hover-marble:hover {
+            background-position: 100% 50%;
+        }
+
+        /* Gilt Edge */
+        .hover-gilt-edge {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            position: relative;
+        }
+
+        .hover-gilt-edge::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px solid var(--gold);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .hover-gilt-edge:hover {
+            background: var(--deep-burgundy);
+            color: white;
+        }
+
+        .hover-gilt-edge:hover::before {
+            opacity: 1;
+        }
+
+        /* Ink Rise */
+        .hover-ink-rise {
+            background: transparent;
+            border: 2px solid var(--deep-burgundy);
+            color: var(--deep-burgundy);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hover-ink-rise::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--deep-burgundy);
+            transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .hover-ink-rise span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hover-ink-rise:hover::before {
+            top: 0;
+        }
+
+        .hover-ink-rise:hover {
+            color: white;
+        }
+
+        /* Vellum */
+        .hover-vellum {
+            background: var(--deep-burgundy);
+            color: white;
+            position: relative;
+        }
+
+        .hover-vellum::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            border-radius: inherit;
+        }
+
+        .hover-vellum:hover::after {
+            opacity: 1;
+        }
+
+        /* Story Section Styles */
+        .story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--deep-burgundy);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            font-weight: 300;
+        }
+
+        .story-image {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .story-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Corner Style Options</h1>
+        <p class="intro">
+            Below are different corner treatments applied to actual elements from your website. 
+            Each style creates a different feeling—from classic and traditional to modern and sophisticated.
+        </p>
+
+        <!-- Current Style (Square) -->
+        <div class="style-section">
+            <h2>Current Style: Square Corners</h2>
+            <p class="style-description">Sharp, traditional edges. Bold and architectural.</p>
+            
+            <div class="demo-grid">
+                <div class="wine-card square">
+                    <img src="assets/images/gran-reserva-malbec.jpg" alt="Wine">
+                    <div class="wine-card-content">
+                        <h3 class="wine-name">Gran Reserva Malbec</h3>
+                        <p class="wine-origin">Mendoza, Argentina</p>
+                    </div>
+                </div>
+                
+                <div class="winery-card square">
+                    <h3>Bodega Vega Clara</h3>
+                    <p>vegaclara.com/en</p>
+                </div>
+            </div>
+
+            <div class="dark-bg square">
+                <button class="current-button">CURRENT</button>
+            </div>
+
+            <div class="notes">
+                <h4>Character:</h4>
+                <ul>
+                    <li>Strong, formal presence</li>
+                    <li>Traditional wine industry aesthetic</li>
+                    <li>Can feel rigid or less approachable</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Option 1: Medium Rounded -->
+        <div class="style-section">
+            <h2>Option 1: Medium Rounded (12px)</h2>
+            <p class="style-description">Noticeably soft. Friendly and inviting while remaining elegant.</p>
+            
+            <div class="demo-grid">
+                <div class="wine-card medium">
+                    <img src="assets/images/gran-reserva-malbec.jpg" alt="Wine">
+                    <div class="wine-card-content">
+                        <h3 class="wine-name">Gran Reserva Malbec</h3>
+                        <p class="wine-origin">Mendoza, Argentina</p>
+                    </div>
+                </div>
+                
+                <div class="winery-card medium">
+                    <h3>Bodega Vega Clara</h3>
+                    <p>vegaclara.com/en</p>
+                </div>
+            </div>
+
+            <div class="button-demo">
+                <button class="cta-button medium">Explore Our Portfolio</button>
+                <button class="cta-button medium">Get in Touch</button>
+            </div>
+
+            <div class="notes">
+                <h4>Character:</h4>
+                <ul>
+                    <li>Approachable and modern</li>
+                    <li>More contemporary wine bar than traditional cellar</li>
+                    <li>Balances sophistication with warmth</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Option 2: Soft Rounded -->
+        <div class="style-section">
+            <h2>Option 2: Soft Rounded (20px)</h2>
+            <p class="style-description">Distinctly rounded. Luxurious and boutique feeling.</p>
+            
+            <div class="demo-grid">
+                <div class="wine-card soft">
+                    <img src="assets/images/gran-reserva-malbec.jpg" alt="Wine">
+                    <div class="wine-card-content">
+                        <h3 class="wine-name">Gran Reserva Malbec</h3>
+                        <p class="wine-origin">Mendoza, Argentina</p>
+                    </div>
+                </div>
+                
+                <div class="winery-card soft">
+                    <h3>Bodega Vega Clara</h3>
+                    <p>vegaclara.com/en</p>
+                </div>
+            </div>
+
+            <div class="button-demo">
+                <button class="cta-button soft">Explore Our Portfolio</button>
+                <button class="cta-button soft">Get in Touch</button>
+            </div>
+
+            <div class="notes">
+                <h4>Character:</h4>
+                <ul>
+                    <li>High-end boutique aesthetic</li>
+                    <li>More fashion-forward and design-conscious</li>
+                    <li>Risks feeling too casual or consumer-tech</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Organic Button Shapes -->
+        <div class="style-section">
+            <h2>Organic Button Shapes</h2>
+            <p class="style-description">Unique, flowing shapes.</p>
+            
+            <div class="button-grid">
+                <div class="button-sample">
+                    <button class="cta-button btn-blob">Blob Morph</button>
+                    <p class="button-label">Organic flowing shape</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-wave">Smooth Wave</button>
+                    <p class="button-label">Gentle undulating curves</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-pebble">Pebble</button>
+                    <p class="button-label">Natural stone shape</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-liquid">Liquid Drop</button>
+                    <p class="button-label">Water droplet form</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-organic-oval">Organic Oval</button>
+                    <p class="button-label">Irregular ellipse</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-cloud">Cloud Shape</button>
+                    <p class="button-label">Soft cumulus form</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-teardrop"><span>Teardrop</span></button>
+                    <p class="button-label">Wine drop silhouette</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-kidney">Kidney Bean</button>
+                    <p class="button-label">Curved organic shape</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-amoeba">Amoeba</button>
+                    <p class="button-label">Free-flowing abstract</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-arch">Smooth Arch</button>
+                    <p class="button-label">Architectural curve</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-wineglass">Wine Glass</button>
+                    <p class="button-label">Stemware silhouette</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-ribbon-flow">Flowing Ribbon</button>
+                    <p class="button-label">Elegant banner shape</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-infinity">Infinity Loop</button>
+                    <p class="button-label">Continuous flow</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-lens">Smooth Lens</button>
+                    <p class="button-label">Optical oval</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-smooth-capsule">Smooth Capsule</button>
+                    <p class="button-label">Fully rounded pill</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-undulate">Undulating</button>
+                    <p class="button-label">Wave-like perimeter</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button btn-splash">Artistic Splash</button>
+                    <p class="button-label">Wine splash pattern</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button pill">Classic Pill</button>
+                    <p class="button-label">Traditional rounded ends</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elegant Hover Effects -->
+        <div class="style-section">
+            <h2>Elegant Hover Effects</h2>
+            <p class="style-description">Sophisticated interactions that enhance the tactile experience—think wine labels, gallery catalogs, and artisan craft. All effects maintain perfect text readability.</p>
+            
+            <div class="button-grid">
+                <div class="button-sample">
+                    <button class="cta-button medium hover-backlight">LED Backlight</button>
+                    <p class="button-label">TV backlight effect—animated glow</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-backlight-pulse">Backlight Pulse</button>
+                    <p class="button-label">Pulsing LED halo effect</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-backlight-rgb">RGB Backlight</button>
+                    <p class="button-label">Shifting color backlight</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-soft-glow">Soft Glow</button>
+                    <p class="button-label">Gentle luminous halo</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-wine-bloom"><span>Wine Bloom</span></button>
+                    <p class="button-label">Organic color spread</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-gold-shimmer"><span>Gold Shimmer</span></button>
+                    <p class="button-label">Light sweep across surface</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-gentle-lift">Gentle Lift</button>
+                    <p class="button-label">Elevated from surface</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-border-trace">Border Trace</button>
+                    <p class="button-label">Gold outline appears</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-fade-elegant">Elegant Fade</button>
+                    <p class="button-label">Smooth color transition</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-wax-seal">Wax Seal</button>
+                    <p class="button-label">Traditional seal impression</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-underline-draw">Line Draw</button>
+                    <p class="button-label">Underline sketches in</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-ripple">Ripple Wave</button>
+                    <p class="button-label">Circular wave from center</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-vintage-fade">Vintage Fade</button>
+                    <p class="button-label">Aged photograph effect</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-double-line">Double Line Draw</button>
+                    <p class="button-label">Parallel lines trace edges</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-marble">Marble Swirl</button>
+                    <p class="button-label">Marbled texture reveal</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-gilt-edge">Gilt Edge</button>
+                    <p class="button-label">Gold leaf border trace</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-ink-rise"><span>Ink Rise</span></button>
+                    <p class="button-label">Calligraphy ink spread</p>
+                </div>
+
+                <div class="button-sample">
+                    <button class="cta-button medium hover-vellum">Vellum Overlay</button>
+                    <p class="button-label">Translucent layer fades in</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story Section Examples -->
+        <div class="style-section">
+            <h2>Story Section Treatment</h2>
+            <p class="style-description">How corner styles affect your story sections with full layout context.</p>
+            
+            <h3 style="margin: 2rem 0 1rem; font-family: 'Cormorant Garamond', serif; color: var(--deep-burgundy);">Current (Square)</h3>
+            <div class="story-container">
+                <div class="story-content">
+                    <h2>Born from an Adventure</h2>
+                    <p>Full Belly Wine Imports began with a three-year overland journey from Canada to Argentina, exploring global wine regions in search of exceptional and distinctive products.</p>
+                    <p>That adventure inspired our mission: to bring back the wines we discovered along the way—small-batch, high-quality bottles from passionate family producers who pour their heritage into every vintage.</p>
+                </div>
+                <div class="story-image square">
+                    <img src="assets/images/adventure.jpg" alt="Wine cellar barrels">
+                </div>
+            </div>
+
+            <h3 style="margin: 4rem 0 1rem; font-family: 'Cormorant Garamond', serif; color: var(--deep-burgundy);">Medium Rounded (12px)</h3>
+            <div class="story-container">
+                <div class="story-content">
+                    <h2>Born from an Adventure</h2>
+                    <p>Full Belly Wine Imports began with a three-year overland journey from Canada to Argentina, exploring global wine regions in search of exceptional and distinctive products.</p>
+                    <p>That adventure inspired our mission: to bring back the wines we discovered along the way—small-batch, high-quality bottles from passionate family producers who pour their heritage into every vintage.</p>
+                </div>
+                <div class="story-image medium">
+                    <img src="assets/images/adventure.jpg" alt="Wine cellar barrels">
+                </div>
+            </div>
+
+            <h3 style="margin: 4rem 0 1rem; font-family: 'Cormorant Garamond', serif; color: var(--deep-burgundy);">Soft Rounded (20px)</h3>
+            <div class="story-container">
+                <div class="story-content">
+                    <h2>Born from an Adventure</h2>
+                    <p>Full Belly Wine Imports began with a three-year overland journey from Canada to Argentina, exploring global wine regions in search of exceptional and distinctive products.</p>
+                    <p>That adventure inspired our mission: to bring back the wines we discovered along the way—small-batch, high-quality bottles from passionate family producers who pour their heritage into every vintage.</p>
+                </div>
+                <div class="story-image soft">
+                    <img src="assets/images/adventure.jpg" alt="Wine cellar barrels">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
