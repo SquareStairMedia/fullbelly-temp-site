@@ -262,7 +262,7 @@
             text-align: center;
         }
 
-        /* Organic Button Shapes */
+        /* Organic Button Shapes - All smooth curves, no sharp corners */
         
         /* Blob Morph */
         .btn-blob {
@@ -1092,17 +1092,145 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .intro {
+                font-size: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .style-section {
+                padding: 2rem 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .style-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
             .story-container {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2rem;
             }
 
             .story-content h2 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .story-content p {
+                font-size: 1rem;
             }
 
             .button-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.85rem;
+            }
+
+            .current-button {
+                padding: 1rem 2.5rem;
+                font-size: 0.9rem;
+            }
+
+            .dark-bg {
+                padding: 2rem;
+            }
+
+            .notes {
+                padding: 1rem;
+            }
+
+            /* Adjust organic button shapes for mobile */
+            .btn-blob,
+            .btn-pebble,
+            .btn-liquid,
+            .btn-organic-oval,
+            .btn-cloud,
+            .btn-teardrop,
+            .btn-kidney,
+            .btn-amoeba,
+            .btn-arch,
+            .btn-wineglass,
+            .btn-ribbon-flow,
+            .btn-infinity,
+            .btn-lens,
+            .btn-smooth-capsule,
+            .btn-undulate,
+            .btn-splash {
+                padding: 0.9rem 2rem;
+                font-size: 0.85rem;
+            }
+
+            .btn-wave {
+                padding: 0.9rem 2rem;
+            }
+
+            .btn-smooth-capsule {
+                padding: 0.9rem 3rem;
+            }
+
+            .btn-smooth-capsule:hover {
+                padding: 1rem 3.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .style-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .cta-button,
+            .btn-blob,
+            .btn-wave,
+            .btn-pebble,
+            .btn-liquid,
+            .btn-organic-oval,
+            .btn-cloud,
+            .btn-teardrop,
+            .btn-kidney,
+            .btn-amoeba,
+            .btn-arch,
+            .btn-wineglass,
+            .btn-ribbon-flow,
+            .btn-infinity,
+            .btn-lens,
+            .btn-smooth-capsule,
+            .btn-undulate,
+            .btn-splash {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.8rem;
+                letter-spacing: 0.1em;
+            }
+
+            .btn-smooth-capsule {
+                padding: 0.8rem 2.5rem;
+            }
+
+            .btn-smooth-capsule:hover {
+                padding: 0.9rem 3rem;
+            }
+
+            .button-label {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -1222,7 +1350,7 @@
         <!-- Organic Button Shapes -->
         <div class="style-section">
             <h2>Organic Button Shapes</h2>
-            <p class="style-description">Unique, flowing shapes.</p>
+            <p class="style-description">Unique, flowing shapes inspired by nature, wine, and artisan craft. No sharp corners—only smooth, elegant curves.</p>
             
             <div class="button-grid">
                 <div class="button-sample">
